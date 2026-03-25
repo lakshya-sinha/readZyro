@@ -9,10 +9,10 @@ export default function Home() {
    <>
       <Navbar />
       <Hero/> 
-      <div className="centerize-container flex justify-center px-10">
+       <div className="flex flex-col md:flex-row gap-6 w-full px-4 sm:px-8 lg:px-16 py-6">
         <Categories />
-        <TrendingBooks/>
-      </div> 
+        <TrendingBooks />
+       </div>
       <Footer />  
     </> 
   );

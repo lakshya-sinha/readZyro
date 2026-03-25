@@ -7,30 +7,41 @@ interface BookBoxInterface {
     author: string;
     description: string;
     rating: string;
-    price: string
+    price: string;
 }
 
 export default function Component({ imageUrl, author, title, description, rating, price }: BookBoxInterface) {
     return (
-        <>
-            <div className="border rounded-xl w-[200px] p-1 shadow-md cursor-pointer hover:scale-105 transition-all backdrop-blur-xs">
-                <div className="relative w-[190px] h-[200px] border overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/15">
-                    <Image
-                        src={imageUrl}
-                        alt=""
-                        fill
-                        className="object-cover"
-                    />
-                </div>
-                <div className="border-b-1 text-center">
-                    <h1 className="line-clamp-1">{title}</h1>
-                    <h2 className="text-gray-600">{author}</h2>
-                </div>
-                <div className="flex justify-between">
-                    <div className="flex gap-1 items-center"><Star size={15} fill="yellow" color="orange"/>{rating}</div>
-                    <div className="text-green-700 font-bold">₹{price}</div>
-                </div>
+        <div className="group relative w-[170px] lg:w-[200px] rounded-2xl border border-gray-200/80 bg-white p-2 shadow-sm cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:-translate-y-1">
+            {/* Book cover */}
+            <div className="relative w-full h-[180px] lg:h-[210px] overflow-hidden rounded-xl">
+                <Image
+                    src={imageUrl}
+                    alt={title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* subtle dark overlay on hover for depth */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-300 rounded-xl" />
             </div>
-        </>
+
+            {/* Info */}
+            <div className="mt-2.5 px-0.5">
+                <h1 className="text-sm font-semibold text-gray-900 leading-tight line-clamp-1">{title}</h1>
+                <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">{author}</p>
+            </div>
+
+            {/* Divider */}
+            <div className="my-2 h-px bg-gray-100" />
+
+            {/* Rating + Price */}
+            <div className="flex items-center justify-between px-0.5">
+                <div className="flex items-center gap-1">
+                    <Star size={13} fill="#facc15" strokeWidth={0} />
+                    <span className="text-xs font-medium text-gray-600">{rating}</span>
+                </div>
+                <span className="text-sm font-bold text-emerald-600">₹{price}</span>
+            </div>
+        </div>
     );
 }
