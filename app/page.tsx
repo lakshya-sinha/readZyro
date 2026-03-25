@@ -3,6 +3,7 @@ import Hero from '@/components/home/Hero';
 import Categories  from '@/components/home/Categories';
 import TrendingBooks   from '@/components/home/Trending';
 import Footer from '@/components/layouts/Footer'
+import BuySellSteps from '@/components/home/BuySellSteps';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Categories />
         <TrendingBooks />
        </div>
+      <BuySellSteps/>
       <Footer />  
     </> 
   );
